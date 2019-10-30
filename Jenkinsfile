@@ -24,3 +24,27 @@ pipeline {
         }
     }
 }
+stage('Test'){
+    parallel linux: {
+        node('master'){
+            checkout scm
+            try {
+                echo 'start linux test'
+            }
+            finally {
+                echo 'end linux test'
+            }       
+        }
+    },
+    windows: {
+        node('master'){
+            checkout scm
+            try {
+                echo 'start windows test'
+            }
+            finally {
+                echo 'end windows test'
+            }       
+        }
+    }
+}
