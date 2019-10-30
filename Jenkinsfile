@@ -2,7 +2,7 @@ def username = 'Jenkins'
 echo 'Hello Mr. ${username}'
 echo "I said, Hello  Mr. ${username}"
 pipeline {
-    agent any
+    agent lable 'master'
     stages {
         stage('Example') {
             steps {
