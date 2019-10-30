@@ -23,4 +23,9 @@ pipeline {
             }
         }
     }
+    post {
+        failure {
+            mail to tuanchanged@gmail.com, subject: 'The Pipeline failed:('
+        }
+    }
 }
