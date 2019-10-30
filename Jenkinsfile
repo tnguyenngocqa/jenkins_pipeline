@@ -1,10 +1,3 @@
-pipeline {
-    agent any
-    stages {
-        stage('Stage 1') {
-            steps {
-                echo 'Hello world!'
-            }
-        }
-    }
-}
+def username = 'Jenkins'
+echo 'Hello Mr. ${username}'
+echo "I said, Hello  Mr. ${username}"
