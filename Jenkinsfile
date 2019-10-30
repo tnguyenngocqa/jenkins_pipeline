@@ -5,10 +5,14 @@ pipeline {
     agent {
         label 'master'
     }
+    parameters {
+        string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the word?')
+    }
     stages {
         stage('Example') {
             steps {
-                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+                echo "${params.Greeting} World!"
+                echo "Fracis is running ${env.BUILD_ID} on ${env.JENKINS_URL}"
             }
         }
     }
