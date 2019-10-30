@@ -21,14 +21,6 @@ pipeline {
                 echo "${params.Greeting} World!"
                 echo "Fracis is running build id ${env.BUILD_ID} on ${env.JENKINS_URL}"
             }
-            post {
-                always {
-                    echo "Done"
-                }
-                failure {
-                    mail to: tuanchanged@gmail.com, subject: 'The Pipeline failed :('
-                }
-            }
         }
     }
 }
