@@ -16,8 +16,8 @@ pipeline {
     stages {
         stage('Example') {
             steps {
-                echo "JENKINS_USER ${evn.USERNAME}"
-                echo "JENKINS_PASS ${evn.PASSWORD}"
+                echo "JENKINS_USER ${USERNAME}"
+                echo "JENKINS_PASS ${PASSWORD}"
                 echo "${params.Greeting} World!"
                 echo "Fracis is running build id ${env.BUILD_ID} on ${env.JENKINS_URL}"
             }
