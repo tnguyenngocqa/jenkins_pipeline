@@ -3,7 +3,7 @@ echo 'Hello Mr. ${username}'
 echo "I said, Hello  Mr. ${username}"
 pipeline {
     agent {
-        lable 'master'
+        label 'master'
     }
     stages {
         stage('Example') {
