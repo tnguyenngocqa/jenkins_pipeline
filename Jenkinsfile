@@ -25,9 +25,9 @@ pipeline {
                 always {
                     echo "Done"
                 }
-                //failure {
-                    //mail to: tuanchanged@gmail.com, subject: 'The Pipeline failed:('
-                //}
+                failure {
+                    mail to: tuanchanged@gmail.com, subject: 'The Pipeline failed :('
+                }
             }
         }
     }
