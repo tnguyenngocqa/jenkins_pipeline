@@ -1,13 +1,5 @@
 properties([pipelineTriggers([githubPush()])])
 
-// Get repo information
-def myRepo = checkout scm
-def gitCommit = myRepo.GIT_COMMIT
-def gitBranch = myRepo.GIT_BRANCH
-def shortGitCommit = "v-${gitCommit[0..6]}"
-// Agent Host IPs
-def ipDeployMachine = "10.20.34.104"
-
 def username = 'Jenkins'
 echo 'Hello Mr. ${username}'
 echo "I said, Hello  Mr. ${username}"
