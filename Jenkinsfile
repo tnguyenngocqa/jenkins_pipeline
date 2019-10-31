@@ -77,6 +77,9 @@ stage('Unit Tests'){
     }
 }
 stage('Example') {
+    when {
+        branch 'master'
+    }
     node('master'){
         if (env.BRANCH_NAME == 'master') {
             echo 'I only execute on the master branch'
