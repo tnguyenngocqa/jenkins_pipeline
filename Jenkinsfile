@@ -97,3 +97,14 @@ stage('Integration Tests'){
         }
     }
 }
+stage('Signoff'){
+    node('master'){
+        input("Deploy that to prod ?")
+        milestone()
+    }
+}
+stage('Deploy to production'){
+    node('master'){
+        echo 'Deployed to production'
+    }
+}
