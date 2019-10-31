@@ -17,7 +17,6 @@ pipeline {
         label 'master'
     }
     environment {
-        GIT_ULR  = 
         USERNAME = 'JENKINS_USER'
         PASSWORD = 'JENKINS_PASS'
     }
