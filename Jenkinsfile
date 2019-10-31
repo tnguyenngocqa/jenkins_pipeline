@@ -99,7 +99,7 @@ stage('Integration Tests'){
 }
 stage('Signoff'){
     node('master'){
-        input("Deploy that to prod ?", ok : "Yes")
+        input("Deploy that to prod ?")
    
         milestone()
     }
