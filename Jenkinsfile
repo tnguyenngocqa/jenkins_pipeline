@@ -1,8 +1,7 @@
 properties([pipelineTriggers([githubPush()])])
-echo 'Wellcome to Github Webhook - I am dev-1 branch'
+
 echo 'Wellcome to Github Webhook'
-echo 'Wellcome to Github Webhook'
-echo 'Wellcome to Github Webhook'
+
 def username = 'Jenkins'
 echo 'Hello Mr. ${username}'
 echo "I said, Hello  Mr. ${username}"
@@ -28,11 +27,6 @@ pipeline {
                 echo "JENKINS_USER ${USERNAME}"
                 echo "JENKINS_PASS ${PASSWORD}"
                 echo "${params.Greeting} World!"
-                echo "Fracis is running build id ${env.BUILD_ID} on ${env.JENKINS_URL}"
-                echo "JENKINS_USER ${USERNAME}"
-                echo "JENKINS_PASS ${PASSWORD}"
-                echo "${params.Greeting} World!"
-                echo "Fracis is running build id ${env.BUILD_ID} on ${env.JENKINS_URL}"
             }
         }
         stage('Stage 2') {
@@ -42,15 +36,7 @@ pipeline {
                 echo "${params.Greeting} World!"
                 echo "Fracis is running build id ${env.BUILD_ID} on ${env.JENKINS_URL}"
             }
-        }
-        stage('Stage 3') {
-            steps {
-                echo "JENKINS_USER ${USERNAME}"
-                echo "JENKINS_PASS ${PASSWORD}"
-                echo "${params.Greeting} World!"
-                echo "Fracis is running build id ${env.BUILD_ID} on ${env.JENKINS_URL}"
-            }
-        }        
+        }      
     }
 }
 stage('Unit Tests'){
