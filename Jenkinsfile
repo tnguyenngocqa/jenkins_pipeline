@@ -16,7 +16,7 @@ pipeline {
         string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the word?')
     }
     stages {
-        stage('Build') {
+        stage('Stage 1') {
             steps {
                 echo "JENKINS_USER ${USERNAME}"
                 echo "JENKINS_PASS ${PASSWORD}"
