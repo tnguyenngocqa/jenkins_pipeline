@@ -10,7 +10,7 @@
 properties([pipelineTriggers([pollSCM('* * * * *')])])
 
 echo 'Wellcome to Github Webhook'
-echo 'I am a dev'
+echo 'I am a master'
 
 def username = 'Jenkins'
 echo 'Hello Mr. ${username}'
