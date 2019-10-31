@@ -1,7 +1,17 @@
-properties([pipelineTriggers([githubPush()])])
+// Poll SCM (poll Source Control Management): ở trigger này sẽ lắng nghe repository của chúng ta nếu có thay đổi thì sẽ tự động call mục này để chỉ định chạy job của chúng ta. về cách setup cũng tương tự như Build periodically cũng gồm 5 mục
+
+// MINUTES   phút trong một giờ (0-59)
+// HOURS  giờ trong 1 ngày (0-23)
+// DAY MONTH:  ngày trong tháng (0-31)
+// MONTH tháng trong năm (1-12)
+// DAYWEEK : ngày trong tuần (0-7) tương đương thứ 2 – chủ nhật
+
+//properties([pipelineTriggers([githubPush()])])
+properties([pipelineTriggers([pollSCM('* * * * *')])])
+
 echo 'Wellcome to Github Webhook'
-echo 'Wellcome to Github Webhook'
-echo 'Wellcome to Github Webhook'
+echo 'I am a dev'
+
 def username = 'Jenkins'
 echo 'Hello Mr. ${username}'
 echo "I said, Hello  Mr. ${username}"
@@ -27,11 +37,6 @@ pipeline {
                 echo "JENKINS_USER ${USERNAME}"
                 echo "JENKINS_PASS ${PASSWORD}"
                 echo "${params.Greeting} World!"
-                echo "Fracis is running build id ${env.BUILD_ID} on ${env.JENKINS_URL}"
-                echo "JENKINS_USER ${USERNAME}"
-                echo "JENKINS_PASS ${PASSWORD}"
-                echo "${params.Greeting} World!"
-                echo "Fracis is running build id ${env.BUILD_ID} on ${env.JENKINS_URL}"
             }
         }
         stage('Stage 2') {
@@ -41,15 +46,7 @@ pipeline {
                 echo "${params.Greeting} World!"
                 echo "Fracis is running build id ${env.BUILD_ID} on ${env.JENKINS_URL}"
             }
-        }
-        stage('Stage 3') {
-            steps {
-                echo "JENKINS_USER ${USERNAME}"
-                echo "JENKINS_PASS ${PASSWORD}"
-                echo "${params.Greeting} World!"
-                echo "Fracis is running build id ${env.BUILD_ID} on ${env.JENKINS_URL}"
-            }
-        }        
+        }      
     }
 }
 stage('Unit Tests'){
