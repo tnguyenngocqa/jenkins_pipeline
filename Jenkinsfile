@@ -40,6 +40,9 @@ pipeline {
             }
         }
         stage('Stage 2') {
+            when {
+                branch 'master'
+            }
             steps {
                 echo "JENKINS_USER ${USERNAME}"
                 echo "JENKINS_PASS ${PASSWORD}"
@@ -73,6 +76,15 @@ stage('Unit Tests'){
         }
     }
 }
+stage('Example') {
+    node('master'){
+        if (env.BRANCH_NAME == 'master') {
+            echo 'I only execute on the master branch'
+        } else {
+            echo 'I execute elsewhere'
+        }
+    }
+}
 stage('Integration Tests'){
     parallel linux: {
         node('master'){
@@ -100,8 +112,7 @@ stage('Integration Tests'){
 stage('Signoff'){
     node('master'){
         input("Deploy that to prod ?")
-   
-        milestone()
+        milestone(1)
     }
 }
 stage('Deploy to production'){
