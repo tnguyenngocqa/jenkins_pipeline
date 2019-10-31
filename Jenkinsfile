@@ -99,7 +99,8 @@ stage('Integration Tests'){
 }
 stage('Signoff'){
     node('master'){
-        input("Deploy that to prod ?")
+        def condition = input("Deploy that to prod ?")
+        echo ${condition}
         milestone()
     }
 }
